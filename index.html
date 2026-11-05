@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChessCoach.pl – Klub Szachowy & Droga do 1000 ELO</title>
+  <title>ChessCoach.pl – Akademia DajMiToNaPak3 & Droga do 1000 ELO</title>
   <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
@@ -20,6 +20,7 @@
       --blue: #38bdf8;
       --amber: #f59e0b;
       --danger: #ef4444;
+      --purple: #a855f7;
       --text: #f8fafc;
       --text-muted: #9e9b95;
       --sq-light: #eeeed2;
@@ -42,11 +43,11 @@
     .black-3c85d { background-color: var(--sq-dark) !important; color: var(--sq-light) !important; }
     .board-b72b1 { border: 3px solid #1c1a17 !important; border-radius: 6px; overflow: hidden; box-shadow: 0 12px 32px rgba(0,0,0,0.55); }
 
-    /* GÓRNY PASEK */
+    /* GÓRNY PASEK NAWIGACYJNY */
     .topbar {
-      width: 100%; max-width: 1380px; background: var(--card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 10px 18px; margin-bottom: 14px;
-      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px;
+      width: 100%; max-width: 1420px; background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 10px 16px; margin-bottom: 14px;
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
     .brand { display: flex; align-items: center; gap: 10px; }
@@ -55,13 +56,13 @@
       display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #1b2613; font-weight: 900;
       box-shadow: 0 3px 0 var(--green-dark);
     }
-    .brand-title { font-size: 1.15rem; font-weight: 800; color: #fff; }
-    .brand-sub { font-size: 0.73rem; color: var(--green); font-weight: 600; display: block; }
+    .brand-title { font-size: 1.1rem; font-weight: 800; color: #fff; }
+    .brand-sub { font-size: 0.72rem; color: var(--green); font-weight: 600; display: block; }
 
-    .nav-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+    .nav-pills { display: flex; gap: 5px; flex-wrap: wrap; }
     .nav-pill {
       background: var(--card-alt); color: var(--text-muted); border: 1px solid var(--border);
-      padding: 8px 13px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: 0.15s;
+      padding: 7px 11px; border-radius: 8px; font-size: 0.79rem; font-weight: 700; cursor: pointer; transition: 0.15s;
     }
     .nav-pill:hover { color: #fff; background: #3c3934; }
     .nav-pill.active {
@@ -69,32 +70,32 @@
       box-shadow: 0 2px 0 var(--green-dark); font-weight: 800;
     }
 
-    .user-hub { display: flex; align-items: center; gap: 10px; }
+    .user-hub { display: flex; align-items: center; gap: 8px; }
     .user-badge {
-      display: flex; align-items: center; gap: 10px; background: var(--card-alt);
-      border: 1px solid var(--border); padding: 5px 12px; border-radius: 10px; cursor: pointer; transition: 0.15s;
+      display: flex; align-items: center; gap: 9px; background: var(--card-alt);
+      border: 1px solid var(--border); padding: 5px 11px; border-radius: 10px; cursor: pointer; transition: 0.15s;
     }
     .user-badge:hover { border-color: var(--green); }
     .u-avatar {
-      width: 32px; height: 32px; border-radius: 7px; background: #45753c;
-      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+      width: 30px; height: 30px; border-radius: 7px; background: #45753c;
+      display: flex; align-items: center; justify-content: center; font-size: 1.05rem;
     }
-    .u-name { font-size: 0.85rem; font-weight: 700; color: #fff; }
-    .u-elo { font-size: 0.76rem; color: var(--green); font-weight: 800; }
+    .u-name { font-size: 0.82rem; font-weight: 700; color: #fff; }
+    .u-elo { font-size: 0.74rem; color: var(--green); font-weight: 800; }
 
     /* UKŁAD GŁÓWNY */
     .workspace {
-      width: 100%; max-width: 1380px; display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; align-items: flex-start;
+      width: 100%; max-width: 1420px; display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; align-items: flex-start;
     }
     .left-stage { width: calc(var(--board-size) + 46px); max-width: 100%; }
-    .right-stage { flex: 1; min-width: 340px; max-width: 660px; }
+    .right-stage { flex: 1; min-width: 350px; max-width: 720px; }
 
     .card {
       background: var(--card); border: 1px solid var(--border); border-radius: 12px;
       padding: 16px; box-shadow: 0 10px 28px rgba(0,0,0,0.4);
     }
 
-    /* PASKI GRACZY + ZEGARY */
+    /* PASKI GRACZY + ZEGARY + CZAS NA RUCH */
     .player-bar {
       display: flex; justify-content: space-between; align-items: center;
       background: var(--card-alt); padding: 7px 12px; border-radius: 8px; margin-bottom: 8px;
@@ -107,10 +108,15 @@
       display: flex; align-items: center; justify-content: center; font-size: 1.15rem; font-weight: bold;
     }
     .p-name { font-size: 0.9rem; font-weight: 700; color: #fff; }
-    .p-elo { font-size: 0.78rem; color: var(--text-muted); margin-left: 4px; }
-    .captured-strip { font-size: 0.85rem; color: #d1d5db; display: flex; align-items: center; gap: 5px; margin-top: 2px; min-height: 18px; }
+    .p-elo { font-size: 0.76rem; color: var(--text-muted); margin-left: 4px; }
+    .captured-strip { font-size: 0.84rem; color: #d1d5db; display: flex; align-items: center; gap: 5px; margin-top: 2px; min-height: 18px; }
     .mat-pill { background: rgba(255,255,255,0.14); padding: 1px 6px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; color: #fff; }
 
+    .clock-wrap { display: flex; align-items: center; gap: 8px; }
+    .think-pill {
+      font-size: 0.72rem; padding: 4px 8px; border-radius: 6px; font-weight: 700;
+      background: rgba(56, 189, 248, 0.15); color: var(--blue); border: 1px solid rgba(56, 189, 248, 0.3);
+    }
     .clock-box {
       background: #1c1a17; color: #9e9b95; padding: 6px 12px; border-radius: 6px;
       font-family: "SF Mono", "Roboto Mono", monospace; font-size: 1.05rem; font-weight: 800;
@@ -118,7 +124,7 @@
     }
     .clock-box.active-clock { background: #f8fafc; color: #161512; box-shadow: 0 0 10px rgba(255,255,255,0.2); }
 
-    /* SZACHOWNICA + PASEK EWALUACJI */
+    /* SZACHOWNICA + EVAL BAR */
     .board-row { display: grid; grid-template-columns: 26px 1fr; gap: 8px; align-items: stretch; }
     .eval-wrap {
       width: 26px; background: #f1f5f9; border-radius: 5px; overflow: hidden;
@@ -134,7 +140,7 @@
     }
     #board-holder { width: var(--board-size); max-width: 100%; margin: 0 auto; user-select: none; }
 
-    /* PODŚWIETLENIA PÓL I KÓŁKA RUCHÓW JAK NA CHESS.COM */
+    /* PODŚWIETLENIA PÓL I KÓŁKA RUCHÓW CHESS.COM */
     .square-55d63 { position: relative; cursor: pointer; }
     .square-55d63.hl-selected { background-color: rgba(255, 255, 51, 0.5) !important; }
     .square-55d63.hl-last-move { background-color: rgba(245, 246, 130, 0.45) !important; }
@@ -144,20 +150,20 @@
 
     .square-55d63.legal-dot::after {
       content: ""; width: 30%; height: 30%;
-      background: rgba(0, 0, 0, 0.25); border-radius: 50%;
+      background: rgba(0, 0, 0, 0.26); border-radius: 50%;
       position: absolute; top: 35%; left: 35%; pointer-events: none; z-index: 25;
     }
     .square-55d63.legal-capture::after {
       content: ""; width: 84%; height: 84%; border-radius: 50%;
-      border: 5px solid rgba(0, 0, 0, 0.3);
+      border: 5px solid rgba(0, 0, 0, 0.32);
       position: absolute; top: 8%; left: 8%; pointer-events: none; z-index: 25;
     }
 
-    /* PRZYCISKI POD SZACHOWNICĄ */
+    /* PRZYCISKI STEROWANIA */
     .action-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 10px; }
     button, select, input[type="text"] {
       background: var(--card-alt); color: var(--text); border: 1px solid var(--border);
-      padding: 9px 12px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; transition: 0.15s;
+      padding: 9px 12px; border-radius: 8px; font-size: 0.81rem; font-weight: 700; transition: 0.15s;
     }
     button, select { cursor: pointer; }
     button:hover, select:hover { background: #3c3934; }
@@ -171,11 +177,11 @@
     .quick-toggles {
       display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px;
       margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border);
-      font-size: 0.77rem; color: var(--text-muted);
+      font-size: 0.76rem; color: var(--text-muted);
     }
     .quick-toggles label { display: flex; align-items: center; gap: 5px; cursor: pointer; }
 
-    /* PRAWA KOLUMNA */
+    /* PRAWA KOLUMNA – PANELE */
     .tab-pane { display: none; }
     .tab-pane.active { display: block; }
 
@@ -191,7 +197,7 @@
     .b-good { background: rgba(56, 189, 248, 0.2); color: #7dd3fc; }
     .b-inacc { background: rgba(245, 158, 11, 0.25); color: #fde68a; }
     .b-blunder { background: rgba(239, 68, 68, 0.28); color: #fca5a5; }
-    .coach-txt { font-size: 0.88rem; line-height: 1.45; color: #e5e7eb; }
+    .coach-txt { font-size: 0.87rem; line-height: 1.46; color: #e5e7eb; }
 
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
     .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
@@ -201,21 +207,33 @@
       background: var(--card-alt); border: 1px solid var(--border); border-radius: 8px;
       padding: 9px 6px; text-align: center;
     }
-    .stat-tile .v { font-size: 1.15rem; font-weight: 800; color: var(--green); }
-    .stat-tile .l { font-size: 0.68rem; color: var(--text-muted); margin-top: 2px; }
+    .stat-tile .v { font-size: 1.12rem; font-weight: 800; color: var(--green); }
+    .stat-tile .l { font-size: 0.67rem; color: var(--text-muted); margin-top: 2px; }
 
     .moves-log {
       background: #181715; border: 1px solid var(--border); border-radius: 8px;
-      height: 170px; overflow-y: auto; padding: 8px; font-size: 0.82rem; margin-bottom: 12px;
+      height: 160px; overflow-y: auto; padding: 8px; font-size: 0.81rem; margin-bottom: 12px;
     }
     .m-row { display: grid; grid-template-columns: 36px 1fr 1fr; padding: 4px 6px; border-radius: 4px; }
     .m-row:nth-child(even) { background: rgba(255,255,255,0.03); }
     .m-num { color: var(--text-muted); font-weight: 600; }
 
-    /* TABELE */
-    .leader-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
-    .leader-table th, .leader-table td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border); }
-    .leader-table th { color: var(--text-muted); font-size: 0.72rem; text-transform: uppercase; }
+    /* QUIZ I TEST WIEDZY */
+    .quiz-card {
+      background: var(--card-alt); border: 1px solid var(--border); border-radius: 10px; padding: 14px; margin-top: 10px;
+    }
+    .quiz-opt {
+      display: block; width: 100%; text-align: left; margin-bottom: 7px; padding: 10px 12px;
+      background: #23211e; border: 1px solid var(--border); border-radius: 8px; color: #f1f5f9; font-size: 0.82rem;
+    }
+    .quiz-opt:hover { border-color: var(--blue); background: #2c2926; }
+    .quiz-opt.correct { background: rgba(129, 182, 76, 0.25); border-color: var(--green); color: #bef264; }
+    .quiz-opt.wrong { background: rgba(239, 68, 68, 0.25); border-color: var(--danger); color: #fca5a5; }
+
+    /* TABELE I RAPORT 1200 GIER */
+    .leader-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+    .leader-table th, .leader-table td { padding: 8px 9px; text-align: left; border-bottom: 1px solid var(--border); }
+    .leader-table th { color: var(--text-muted); font-size: 0.7rem; text-transform: uppercase; }
     .rank-1 { color: #fbbf24; font-weight: 900; }
     .progress-bar { width: 100%; height: 6px; background: #181715; border-radius: 99px; overflow: hidden; margin-top: 4px; }
     .progress-fill { height: 100%; background: var(--green); }
@@ -256,27 +274,28 @@
       <div class="brand-logo">♞</div>
       <div>
         <span class="brand-title">ChessCoach.pl</span>
-        <span class="brand-sub">Klub Szachowy • Akademia 1000 ELO</span>
+        <span class="brand-sub">Baza 1200 Partii DajMiToNaPak3 • Akademia 1000 ELO</span>
       </div>
     </div>
 
     <nav class="nav-pills">
       <button class="nav-pill active" data-tab="play">⚔️ Gra</button>
-      <button class="nav-pill" data-tab="openings">📖 Otwarcia</button>
-      <button class="nav-pill" data-tab="puzzles">🧩 Zadania (<span id="top-blunder-cnt">0</span>)</button>
-      <button class="nav-pill" data-tab="leaderboard">🏆 Ranking Znajomych</button>
-      <button class="nav-pill" data-tab="customize">🎨 Wygląd i Plansza</button>
+      <button class="nav-pill" data-tab="puzzles">🎯 Zadania z Twoich Partii</button>
+      <button class="nav-pill" data-tab="openings">🎓 Otwarcia & Co Po Debiucie</button>
+      <button class="nav-pill" data-tab="report">📊 Raport 1200 Gier</button>
+      <button class="nav-pill" data-tab="leaderboard">🏆 Ranking</button>
+      <button class="nav-pill" data-tab="customize">🎨 Wygląd</button>
     </nav>
 
     <div class="user-hub">
-      <div class="user-badge" id="btn-open-auth" title="Kliknij, aby zmienić gracza lub założyć konto">
+      <div class="user-badge" id="btn-open-auth" title="Kliknij, aby przełączyć gracza lub dodać konto">
         <div class="u-avatar" id="active-user-ava">👑</div>
         <div>
           <div class="u-name" id="active-user-name">DajMiToNaPak3</div>
-          <div class="u-elo" id="active-user-elo">820 ELO</div>
+          <div class="u-elo" id="active-user-elo">868 ELO</div>
         </div>
       </div>
-      <button class="btn-green" id="btn-quick-register" style="padding: 8px 11px;">+ Gracz</button>
+      <button class="btn-green" id="btn-quick-register" style="padding: 7px 10px;">+ Gracz</button>
     </div>
   </header>
 
@@ -292,7 +311,7 @@
             <div class="p-ava" id="bot-ava">🤖</div>
             <div>
               <div>
-                <span class="p-name" id="bot-name">Trener Chess.com Bot</span>
+                <span class="p-name" id="bot-name">Trener Magnus / GM Bot</span>
                 <span class="p-elo" id="bot-elo-lbl">(1000 ELO)</span>
               </div>
               <div class="captured-strip">
@@ -316,7 +335,7 @@
           </div>
         </div>
 
-        <!-- PASEK GRACZA -->
+        <!-- PASEK GRACZA + LICZNIK NAMYSŁU NA RUCH -->
         <div class="player-bar bottom">
           <div class="p-left">
             <div class="p-ava" id="player-bar-ava" style="background: var(--green); color:#14220d;">👑</div>
@@ -331,7 +350,10 @@
               </div>
             </div>
           </div>
-          <div class="clock-box active-clock" id="clock-bottom">10:00</div>
+          <div class="clock-wrap">
+            <span class="think-pill" id="think-time-badge" title="Czas namysłu nad ostatnim ruchem">⏱️ Namysł: -- s</span>
+            <div class="clock-box active-clock" id="clock-bottom">10:00</div>
+          </div>
         </div>
 
         <!-- PRZYCISKI POD PLANSZĄ -->
@@ -350,61 +372,59 @@
       </div>
     </section>
 
-    <!-- PRAWA KOLUMNA: ZAKŁADKI -->
+    <!-- PRAWA KOLUMNA: TRYBY TRENINGOWE -->
     <section class="right-stage">
       <div class="card">
 
-        <!-- OKNO KOMENTARZA TRENERA -->
+        <!-- OKNO KOMENTARZA TRENERA NA ŻYWO -->
         <div class="coach-banner">
           <div class="coach-top">
-            <span class="coach-lbl">🎙️ Analiza Trenera na Żywo</span>
-            <span class="badge-move b-good" id="move-quality-badge">Gotowy do gry</span>
+            <span class="coach-lbl">🎙️ Trener AI & Wzorce Arcymistrzowskie</span>
+            <span class="badge-move b-good" id="move-quality-badge">Gotowy do treningu</span>
           </div>
           <div class="coach-txt" id="coach-comment">
-            Załadowano oryginalne figury Chess.com (Neo). Kliknij dowolną bierkę, aby wyświetlić kółka dostępnych ruchów, lub przeciągnij ją na wybrane pole!
+            Wczytano analizę Twoich 1200+ partii! Sprawdź zakładkę „🎯 Zadania z Twoich Partii” (błędy wycięte prosto z Twojego PGN) oraz „🎓 Otwarcia & Co Po Debiucie” (plany Magnusa Carlsena w Londynie i Caro-Kann).
           </div>
         </div>
 
-        <!-- ZAKŁADKA 1: GRA -->
+        <!-- ZAKŁADKA 1: GRA RANKINGOWA -->
         <div class="tab-pane active" id="pane-play">
           <div class="grid-2">
             <div>
               <label class="lbl">Twój Kolor:</label>
               <select id="sel-color" style="width:100%;">
-                <option value="w">⚪ Białe (Zaczynasz)</option>
-                <option value="b">⚫ Czarne (Caro-Kann / Słowian)</option>
+                <option value="w">⚪ Białe (System Londyński)</option>
+                <option value="b">⚫ Czarne (Caro-Kann / Słowiańska – koniec z 1...f5!)</option>
               </select>
             </div>
             <div>
               <label class="lbl">Poziom Bota (Silnik):</label>
               <select id="sel-bot-elo" style="width:100%;">
-                <option value="600">🌱 600 ELO (Początkujący)</option>
-                <option value="800">🛡️ 800 ELO (Sparring)</option>
+                <option value="650">🌱 650 ELO (Rozgrzewka)</option>
+                <option value="850">🛡️ 850 ELO (Twój Rekord Rapid: 868)</option>
                 <option value="1000" selected>🔥 1000 ELO (Cel Główny)</option>
-                <option value="1250">⚔️ 1250 ELO (Klubowy)</option>
-                <option value="1500">👑 1500 ELO (Turniejowy Boss)</option>
+                <option value="1250">⚔️ 1250 ELO (Poziom Turniejowy)</option>
+                <option value="1500">👑 1500 ELO (Boss Klubowy)</option>
               </select>
             </div>
           </div>
 
           <div class="grid-2">
             <div>
-              <label class="lbl">Asystent Debiutowy:</label>
+              <label class="lbl">Asystent Debiutowy i Środkowej Gry:</label>
               <select id="sel-guide" style="width:100%;">
-                <option value="london">Białe: System Londyński (1.d4 + Gf4)</option>
-                <option value="caro">Czarne: Obrona Caro-Kann (1...c6, 2...d5)</option>
-                <option value="slav">Czarne: Obrona Słowiańska (vs 1.d4)</option>
-                <option value="italian">Białe: Partia Włoska (1.e4 e5)</option>
+                <option value="london">Białe: System Londyński + Plan Carlsena (Ne5/Qb3)</option>
+                <option value="caro">Czarne: Obrona Caro-Kann (1...c6, 2...d5, 3...Bf5)</option>
+                <option value="slav">Czarne: Obrona Słowiańska przeciwko 1.d4</option>
                 <option value="free">Gra Swobodna (Bez podpowiedzi pól)</option>
               </select>
             </div>
             <div>
-              <label class="lbl">Tempo Gry (Zegar):</label>
+              <label class="lbl">Tempo Gry (Trening Anty-Blitz):</label>
               <select id="sel-time" style="width:100%;">
-                <option value="600" selected>⏱️ 10 min (Rapid – Zalecane)</option>
-                <option value="900">⏱️ 15 min (Długi Rapid)</option>
+                <option value="600" selected>⏱️ 10 min (Rapid – Zalecane pod 1000 ELO!)</option>
+                <option value="900">⏱️ 15 min (Turniejowy Rapid)</option>
                 <option value="300">⚡ 5 min (Blitz)</option>
-                <option value="180">🔥 3 min (Szybki Blitz)</option>
                 <option value="0">♾️ Bez limitu czasu</option>
               </select>
             </div>
@@ -420,8 +440,8 @@
               <div class="l">Gra na ELO</div>
             </div>
             <div class="stat-tile">
-              <div class="v" id="st-best" style="color:var(--blue);">0</div>
-              <div class="l">Najlepsze / Książka</div>
+              <div class="v" id="st-avg-think" style="color:var(--blue);">0.0 s</div>
+              <div class="l">Śr. czas na ruch</div>
             </div>
             <div class="stat-tile">
               <div class="v" id="st-blunders" style="color:var(--danger);">0</div>
@@ -429,74 +449,150 @@
             </div>
           </div>
 
-          <label class="lbl">Lista ruchów partii:</label>
+          <label class="lbl">Zapis partii:</label>
           <div class="moves-log" id="moves-log"></div>
 
           <div style="display:flex; gap:8px;">
-            <button id="btn-finish-save" style="flex:1;">🏁 Zakończ i oceń partię</button>
+            <button id="btn-finish-save" style="flex:1;">🏁 Zakończ i zapisz partię</button>
             <button id="btn-copy-pgn">📋 Kopiuj PGN</button>
           </div>
         </div>
 
-        <!-- ZAKŁADKA 2: AKADEMIA OTWARĆ -->
-        <div class="tab-pane" id="pane-openings">
-          <div class="grid-2">
-            <div>
-              <label class="lbl">Wybierz debiut do nauki:</label>
-              <select id="sel-drill" style="width:100%;">
-                <option value="london_main">⚪ Białe: System Londyński (Żelazna Piramida)</option>
-                <option value="caro_adv">⚫ Czarne: Caro-Kann – Wariant Zaawansowany</option>
-                <option value="caro_open">⚫ Czarne: Caro-Kann – Wariant Klasyczny</option>
-                <option value="slav_main">⚫ Czarne: Obrona Słowiańska przeciwko 1.d4</option>
-                <option value="italian_main">⚪ Białe: Partia Włoska (Atak na f7)</option>
-              </select>
-            </div>
-            <div>
-              <label class="lbl">Tryb treningu:</label>
-              <select id="sel-drill-mode" style="width:100%;">
-                <option value="guided">Nauka z podświetleniem pól</option>
-                <option value="exam">Egzamin z pamięci (+15 ELO za zdanie)</option>
-              </select>
-            </div>
-          </div>
-          <button class="btn-green" id="btn-start-drill" style="width:100%; margin-bottom:12px;">Rozpocznij Trening Debiutu</button>
-          <div id="drill-steps-container" style="display:flex; flex-direction:column; gap:6px;"></div>
-        </div>
-
-        <!-- ZAKŁADKA 3: ZADANIA TAKTYCZNE -->
+        <!-- ZAKŁADKA 2: ZADANIA Z TWOICH PARTII (1200 GIER) + WZORCE GM -->
         <div class="tab-pane" id="pane-puzzles">
           <div class="grid-2">
             <div>
-              <label class="lbl">Zestaw zadań:</label>
+              <label class="lbl">Wybierz zestaw zadań:</label>
               <select id="sel-puzzle-src" style="width:100%;">
-                <option value="curated">🎯 Motywy na 1000 ELO (Widełki, Maty, Związania)</option>
-                <option value="blunders">💥 Moje Błędy z Partii (Bank Błędów Gracza)</option>
+                <option value="my_pgn">🔥 Błędy z Twoich 1200 Partii na Chess.com (10 pozycji)</option>
+                <option value="blunders">💥 Nowe Błędy z Bieżących Gier na Stronie (<span id="bank-cnt-opt">0</span>)</option>
               </select>
             </div>
             <div class="stat-tile">
               <div class="v" id="user-puzzles-solved">0</div>
-              <div class="l">Rozwiązane przez Ciebie</div>
+              <div class="l">Rozwiązane zadania</div>
             </div>
           </div>
 
-          <div id="puzzle-header-title" style="font-weight:800; color:var(--blue); margin-bottom:12px; font-size:0.95rem;">
-            Zadanie #1
+          <div style="background:var(--card-alt); padding:12px; border-radius:8px; border:1px solid var(--border); margin-bottom:12px;">
+            <div id="puzzle-header-title" style="font-weight:800; color:var(--amber); margin-bottom:4px; font-size:0.92rem;">
+              Zadanie #1
+            </div>
+            <div id="puzzle-meta-info" style="font-size:0.78rem; color:var(--text-muted);">
+              Wykonaj najlepsze posunięcie na szachownicy po lewej stronie.
+            </div>
           </div>
 
           <div style="display:flex; gap:8px;">
             <button class="btn-green" id="btn-next-puzzle" style="flex:1;">Następne Zadanie ➔</button>
-            <button class="btn-amber" id="btn-solve-puzzle">Pokaż rozwiązanie</button>
+            <button class="btn-amber" id="btn-solve-puzzle">Pokaż prawidłowy ruch</button>
           </div>
         </div>
 
-        <!-- ZAKŁADKA 4: RANKING ZNAJOMYCH I HISTORIA -->
+        <!-- ZAKŁADKA 3: OTWARCIA & CO PO DEBIUCIE (CARLSEN / GM + TEST WIEDZY) -->
+        <div class="tab-pane" id="pane-openings">
+          <div class="grid-2">
+            <div>
+              <label class="lbl">Wybierz lekcję na szachownicy (Debiut + Gra Środkowa):</label>
+              <select id="sel-drill" style="width:100%;">
+                <option value="london_carlsen">⚪ Londyn: Plan Magnusa Carlsena (Piramida + Atak Ne5/f4)</option>
+                <option value="london_anti_qb6">⚪ Londyn: Jak ukarać ...c5 i ...Qb6 (Manewr Qb3! i axb3)</option>
+                <option value="caro_adv_gm">⚫ Caro-Kann: Wariant Zaawansowany + Przełom ...c5! i ...Qb6</option>
+                <option value="caro_classical">⚫ Caro-Kann: Wariant Klasyczny (3...dxe4 i 4...Bf5!)</option>
+                <option value="slav_wall">⚫ Obrona Słowiańska vs 1.d4 (Trójkąt c6-d5 + Bf5)</option>
+              </select>
+            </div>
+            <div>
+              <label class="lbl">Tryb sprawdzenia wiedzy:</label>
+              <select id="sel-drill-mode" style="width:100%;">
+                <option value="guided">Nauka z podświetleniem i tłumaczeniem</option>
+                <option value="exam">Egzamin z pamięci na szachownicy (+15 ELO)</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="btn-green" id="btn-start-drill" style="width:100%; margin-bottom:10px;">Uruchom Trening na Szachownicy</button>
+          <div id="drill-steps-container" style="display:flex; flex-direction:column; gap:5px; max-height:145px; overflow-y:auto; margin-bottom:12px;"></div>
+
+          <!-- INTERAKTYWNY TEST WIEDZY TEORETYCZNEJ ("CO PO OTWARCIU?") -->
+          <div class="quiz-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span class="lbl" style="color:var(--blue); margin:0;">🧠 TEST WIEDZY: Co grać w debiucie i po wyjściu z debiutu?</span>
+              <span style="font-size:0.76rem; font-weight:800; color:var(--green);" id="quiz-score-lbl">Wynik: 0 / 8</span>
+            </div>
+            <div id="quiz-question-txt" style="font-size:0.86rem; font-weight:700; margin-bottom:10px; color:#fff;"></div>
+            <div id="quiz-options-box"></div>
+            <button id="btn-next-quiz" style="width:100%; margin-top:6px;">Następne pytanie testowe ➔</button>
+          </div>
+        </div>
+
+        <!-- ZAKŁADKA 4: RAPORT Z 1200 PARTII -->
+        <div class="tab-pane" id="pane-report">
+          <span class="lbl" style="color:var(--green);">📊 Podsumowanie Analityczne Twojego Archiwum PGN (2022–2026):</span>
+          <div class="grid-4" style="margin-top:8px;">
+            <div class="stat-tile">
+              <div class="v">868</div>
+              <div class="l">Szczyt Rapid (23.01.26)</div>
+            </div>
+            <div class="stat-tile">
+              <div class="v" style="color:var(--blue);">+309</div>
+              <div class="l">Skok po wdrożeniu Londynu</div>
+            </div>
+            <div class="stat-tile">
+              <div class="v" style="color:var(--amber);">3.1 s</div>
+              <div class="l">Śr. namysł w Blitzu</div>
+            </div>
+            <div class="stat-tile">
+              <div class="v" style="color:var(--danger);">25+</div>
+              <div class="l">Oddane wygrane przez PAT</div>
+            </div>
+          </div>
+
+          <table class="leader-table" style="margin-bottom:12px;">
+            <thead>
+              <tr>
+                <th>Debiut w Twoim PGN</th>
+                <th>Ocena skuteczności</th>
+                <th>Główny wniosek trenerski</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>⚪ System Londyński (1.d4 Bf4)</strong></td>
+                <td><span style="color:var(--green); font-weight:800;">56% Wygranych</span></td>
+                <td>Twój konik! Nie bij <code>4.dxc5</code>, broń <code>b2</code> ruchem <code>Qb3</code> i rób krótką roszadę <code>O-O</code>.</td>
+              </tr>
+              <tr>
+                <td><strong>⚫ Caro-Kann / Słowian (c6+d5)</strong></td>
+                <td><span style="color:var(--green); font-weight:800;">58% Wygranych</span></td>
+                <td>Najbezpieczniejsza broń czarnymi. Graj zawsze zamiast <code>1...f5</code>!</td>
+              </tr>
+              <tr>
+                <td><strong>⚪ Gambit Królewski (1.e4 e5 2.f4)</strong></td>
+                <td><span style="color:var(--amber); font-weight:800;">48% Wygranych</span></td>
+                <td>Zbyt duże ryzyko na <code>...Qh4+</code> (porzucony w styczniu 2025 na rzecz Londynu).</td>
+              </tr>
+              <tr>
+                <td><strong>⚫ Obrona Freda / Holenderska (1...f5)</strong></td>
+                <td><span style="color:var(--danger); font-weight:800;">37% Wygranych</span></td>
+                <td><strong>Całkowity zakaz gry!</strong> Powód szybkich matów po <code>Qh5+</code> (Ayal200, op_vackav).</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div style="background:rgba(129,182,76,0.1); border:1px solid rgba(129,182,76,0.3); padding:10px 12px; border-radius:8px; font-size:0.8rem; line-height:1.45;">
+            <strong>📋 Złota Reguła Zegarowa na 1000 ELO:</strong> W Twoich partiach Rapid 10 min zużywasz średnio tylko 3,5 minuty. Na tej stronie wbudowaliśmy licznik <strong>„⏱️ Namysł”</strong> pod szachownicą – staraj się myśleć <strong>minimum 5–8 sekund</strong> nad każdym ruchem!
+          </div>
+        </div>
+
+        <!-- ZAKŁADKA 5: RANKING ZNAJOMYCH I HISTORIA -->
         <div class="tab-pane" id="pane-leaderboard">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
             <span class="lbl" style="margin:0;">🏆 Tablica Liderów – Droga do 1000 ELO:</span>
             <button class="btn-green" id="btn-add-friend-modal" style="padding:5px 10px; font-size:0.75rem;">+ Dodaj Konto (Dziewczyna / Znajomy)</button>
           </div>
 
-          <div style="overflow-x:auto; margin-bottom:16px;">
+          <div style="overflow-x:auto; margin-bottom:14px;">
             <table class="leader-table">
               <thead>
                 <tr>
@@ -513,7 +609,7 @@
           </div>
 
           <label class="lbl">Ostatnie partie aktywnego gracza:</label>
-          <div style="max-height:165px; overflow-y:auto;">
+          <div style="max-height:150px; overflow-y:auto;">
             <table class="leader-table">
               <thead>
                 <tr>
@@ -528,7 +624,7 @@
           </div>
         </div>
 
-        <!-- ZAKŁADKA 5: WYGLĄD PLANSZY I ORYGINALNE FIGURY CHESS.COM -->
+        <!-- ZAKŁADKA 6: WYGLĄD PLANSZY I ORYGINALNE FIGURY CHESS.COM -->
         <div class="tab-pane" id="pane-customize">
           <label class="lbl">1. Rozmiar Szachownicy (<span id="lbl-board-px">480</span> px):</label>
           <input type="range" id="rng-board-size" min="340" max="660" step="10" value="480" style="width:100%; margin-bottom:16px; accent-color: var(--green);">
@@ -563,16 +659,12 @@
 
           <label class="lbl">3. Oryginalne Zestawy Figur z Chess.com:</label>
           <select id="sel-piece-style" style="width:100%; margin-bottom:14px;">
-            <option value="neo" selected>♟️ Chess.com Neo (Domyślne oficjalne figury Chess.com)</option>
+            <option value="neo" selected>♟️ Chess.com Neo (Oficjalne figury Chess.com)</option>
             <option value="wood">🪵 Chess.com Wood (Drewniane turniejowe)</option>
             <option value="icy_sea">❄️ Chess.com Icy Sea (Lodowe nowoczesne)</option>
             <option value="classic">♔ Chess.com Classic (Klasyczne)</option>
             <option value="wikipedia">🏛️ Standard Wikipedia</option>
           </select>
-
-          <p style="font-size:0.78rem; color:var(--text-muted);">
-            Wszystkie ustawienia rozmiaru, motywu i figur zapisują się na stałe dla wybranego konta gracza.
-          </p>
         </div>
 
       </div>
@@ -595,7 +687,7 @@
         <div class="grid-2" style="margin-top:8px;">
           <div>
             <label class="lbl">Nick gracza:</label>
-            <input type="text" id="reg-name" placeholder="np. Julia" style="width:100%;">
+            <input type="text" id="reg-name" placeholder="np. Julia / Zombeczek" style="width:100%;">
           </div>
           <div>
             <label class="lbl">Startowe ELO:</label>
@@ -636,7 +728,6 @@ function getChessComPieceUrl(piece, styleName) {
   if (st === 'wikipedia') {
     return 'https://chessboardjs.com/img/chesspieces/wikipedia/' + piece + '.png';
   }
-  // Oficjalny CDN Chess.com używa małych liter: wp.png, wn.png, bq.png itd.
   return 'https://images.chesscomfiles.com/chess-themes/pieces/' + st + '/150/' + piece.toLowerCase() + '.png';
 }
 
@@ -708,7 +799,7 @@ const SoundFX = {
 };
 
 /* ============================================================================
-   3. SZYBKI I MĄDRY SILNIK SZACHOWY (PRUNING KANDYDATÓW = <15ms BEZ ZACIĘĆ!)
+   3. SZYBKI SILNIK SZACHOWY (<15ms BEZ ZACIĘĆ!)
    ============================================================================ */
 const PIECE_VALS = { p: 100, n: 320, b: 330, r: 500, q: 900, k: 20000 };
 
@@ -804,20 +895,15 @@ const BOOK_MOVES = {
   "d4 d5 Bf4 Nf6 e3 e6": ["Nf3", "c3", "Nd2"],
   "d4 d5 c4": ["c6", "e6"],
   "d4 d5 c4 c6": ["Nf3", "Nc3"],
-  "d4 d5 c4 c6 Nf3": ["Nf6", "Bf5"],
   "e4": ["c6", "e5"],
   "e4 c6": ["d4", "Nf3"],
   "e4 c6 d4": ["d5"],
   "e4 c6 d4 d5": ["e5", "Nc3", "exd5"],
   "e4 c6 d4 d5 e5": ["Bf5"],
   "e4 c6 d4 d5 e5 Bf5": ["Nf3", "Bd3"],
-  "e4 c6 d4 d5 Nc3": ["dxe4"],
-  "e4 e5": ["Nf3"],
-  "e4 e5 Nf3": ["Nc6"],
-  "e4 e5 Nf3 Nc6": ["Bc4", "Bb5"]
+  "e4 c6 d4 d5 Nc3": ["dxe4"]
 };
 
-// Szybkie 2-warstwowe przeszukiwanie z selekcją najlepszych kandydatów (nie zamraża przeglądarki!)
 function findBestEngineMoveFast(ch, targetElo) {
   const moves = ch.moves({ verbose: true });
   if (!moves.length) return null;
@@ -825,7 +911,6 @@ function findBestEngineMoveFast(ch, targetElo) {
   const hStr = ch.history().join(" ");
   const guide = $('#sel-guide').val();
 
-  // Jeśli gracz ćwiczy Caro-Kann czarnymi, bot białymi gra 1.e4 i 2.d4!
   if (hStr === "" && playerColor === 'b') {
     if (guide === 'caro') {
       const mE4 = moves.find(m => m.san === 'e4');
@@ -845,25 +930,22 @@ function findBestEngineMoveFast(ch, targetElo) {
 
   const isMax = ch.turn() === 'w';
   let noise = 20;
-  if (targetElo <= 600) noise = 190;
-  else if (targetElo <= 800) noise = 95;
-  else if (targetElo <= 1000) noise = 38;
-  else if (targetElo <= 1250) noise = 12;
+  if (targetElo <= 650) noise = 185;
+  else if (targetElo <= 850) noise = 85;
+  else if (targetElo <= 1000) noise = 35;
+  else if (targetElo <= 1250) noise = 10;
   else noise = 0;
 
-  // Krok 1: Oceń wszystkie ruchy na głębokości 1 i posortuj
   const scoredMoves = moves.map(mv => {
     ch.move(mv);
     let sc = evaluateBoard(ch);
     ch.undo();
-    // Bonus za bicia i promocje dla sortowania
     if (mv.captured) sc += (isMax ? 1 : -1) * (PIECE_VALS[mv.captured] * 0.25);
     return { mv, sc };
   });
 
   scoredMoves.sort((a, b) => isMax ? (b.sc - a.sc) : (a.sc - b.sc));
 
-  // Krok 2: Sprawdź odpowiedź przeciwnika dla 10 najlepszych kandydatów (głębokość 2 + kontrola podstawek)
   const topCandidates = scoredMoves.slice(0, Math.min(10, scoredMoves.length));
   let bestMove = topCandidates[0].mv;
   let bestScore = isMax ? -Infinity : Infinity;
@@ -886,9 +968,7 @@ function findBestEngineMoveFast(ch, targetElo) {
     }
     ch.undo();
 
-    if (noise > 0) {
-      worstReplyScore += (Math.random() * 2 - 1) * noise;
-    }
+    if (noise > 0) worstReplyScore += (Math.random() * 2 - 1) * noise;
 
     if (isMax && worstReplyScore > bestScore) {
       bestScore = worstReplyScore;
@@ -903,98 +983,241 @@ function findBestEngineMoveFast(ch, targetElo) {
 }
 
 /* ============================================================================
-   4. BAZA DEBIUTÓW I ZADAŃ TAKTYCZNYCH
+   4. ZADANIA WYCIĘTE PROSTO Z 1200 PARTII SZYMONA + WZORCE GM / CARLSENA
    ============================================================================ */
-const DRILLS = {
-  london_main: {
-    color: 'w', name: "System Londyński",
-    moves: [
-      { san: "d4", reply: "d5", exp: "Zajmujesz centrum pionem hetmańskim." },
-      { san: "Bf4", reply: "Nf6", exp: "Wyprowadzasz gońca przed zagraniem e3!" },
-      { san: "e3", reply: "e6", exp: "Wzmacniasz piona d4 i otwierasz białopolowego gońca." },
-      { san: "Nf3", reply: "c5", exp: "Rozwijasz skoczka na aktywne pole f3." },
-      { san: "c3", reply: "Nc6", exp: "Budujesz żelazną piramidę c3-d4-e3!" },
-      { san: "Nbd2", reply: "Bd6", exp: "Skoczek na d2 wspiera centrum i nie blokuje c3." },
-      { san: "Bg3", reply: null, exp: "Piramida Londyńska ukończona! Teraz Gd3 i krótka roszada." }
-    ]
-  },
-  caro_adv: {
-    color: 'b', name: "Caro-Kann: Wariant Zaawansowany",
-    moves: [
-      { firstWhite: "e4", san: "c6", reply: "d4", exp: "Przygotowujesz uderzenie ...d5." },
-      { san: "d5", reply: "e5", exp: "Walczysz o centrum; białe zamykają pozycję." },
-      { san: "Bf5", reply: "Nf3", exp: "Wyprowadzasz gońca przed ruchem ...e6!" },
-      { san: "e6", reply: "Be2", exp: "Domykasz solidny łańcuch pionów." },
-      { san: "c5", reply: null, exp: "Kontratakujesz podstawę łańcucha białych na d4!" }
-    ]
-  },
-  caro_open: {
-    color: 'b', name: "Caro-Kann: Wariant Klasyczny",
-    moves: [
-      { firstWhite: "e4", san: "c6", reply: "d4", exp: "Solidne otwarcie Caro-Kann." },
-      { san: "d5", reply: "Nc3", exp: "Atakujesz centralnego piona e4." },
-      { san: "dxe4", reply: "Nxe4", exp: "Otwierasz centrum po wymianie." },
-      { san: "Bf5", reply: "Ng3", exp: "Atakujesz skoczka i rozwijasz gońca z tempem!" },
-      { san: "Bg6", reply: null, exp: "Goniec bezpiecznie kontroluje przekątną h7-b1." }
-    ]
-  },
-  slav_main: {
-    color: 'b', name: "Obrona Słowiańska vs 1.d4",
-    moves: [
-      { firstWhite: "d4", san: "d5", reply: "c4", exp: "Zatrzymujesz ekspansję białych." },
-      { san: "c6", reply: "Nf3", exp: "Bronisz d5 bez zamykania białopolowego gońca!" },
-      { san: "Nf6", reply: "Nc3", exp: "Rozwijasz skoczka do walki o e4/d5." },
-      { san: "Bf5", reply: "e3", exp: "Goniec wychodzi na aktywną przekątną przed ...e6." },
-      { san: "e6", reply: null, exp: "Słowiański mur gotowy!" }
-    ]
-  },
-  italian_main: {
-    color: 'w', name: "Partia Włoska",
-    moves: [
-      { san: "e4", reply: "e5", exp: "Zajmujesz centrum." },
-      { san: "Nf3", reply: "Nc6", exp: "Atakujesz piona e5." },
-      { san: "Bc4", reply: "Bc5", exp: "Celujesz w najsłabszy punkt czarnych: f7!" },
-      { san: "c3", reply: "Nf6", exp: "Przygotowujesz uderzenie d4 w centrum." },
-      { san: "d3", reply: null, exp: "Stabilne ustawienie włoskie gotowe pod roszadę." }
-    ]
-  }
-};
-
-const PUZZLES = [
+const MY_PGN_PUZZLES = [
   {
-    title: "Zadanie #1: Królewskie widełki na f7 (Białe)",
-    fen: "r2qk2r/ppp2ppp/2n5/3np1N1/2B5/8/PPPP1PPP/R1BQK2R w KQkq - 0 8",
-    sol: { from: "g5", to: "f7" },
-    hint: "Skoczek i goniec celują w punkt f7 – zrób widełki na hetmana i wieżę!"
+    title: "Błąd #1 z Twojej partii vs Barripower (29.01.2026) – Mat na f2 w 6. ruchu!",
+    meta: "W partii zagrałeś 4.dxc5?! Bxc5 5.Nbd2 Qb6 i dostałeś mata 6...Bxf2#. Jak prawidłowo zamknąć przekątną w Londynie?",
+    fen: "rnbqkbnr/pp3ppp/4p3/2pp4/3P1B2/5N2/PPP1PPPP/RN1QKB1R w KQkq - 0 4",
+    sol: { from: "e2", to: "e3" },
+    hint: "W Systemie Londyńskim po ...c5 NIGDY nie bijemy dxc5! Zagraj 4. e3!, budując mur wokół d4 i chroniąc punkt f2."
   },
   {
-    title: "Zadanie #2: Mat na 8. linii (Białe)",
-    fen: "6k1/5ppp/8/8/8/8/5PPP/3R2K1 w - - 0 1",
-    sol: { from: "d1", to: "d8" },
-    hint: "Król czarnych nie ma lufcika. Wykorzystaj wieżę na otwartej linii!"
+    title: "Błąd #2 z Twoich partii vs figure-skater-BOT (24.02.2026) – Ratuj Gońca!",
+    meta: "Po 1.d4 Nf6 2.Bf4 Nh5 zagrałeś z automatu 3.Nf3?? i straciłeś gońca (3...Nxf4). Gdzie ucieka goniec?",
+    fen: "rnbqkb1r/pppppppp/8/7n/3P1B2/8/PPP1PPPP/RN1QKBNR w KQkq - 2 3",
+    sol: { from: "f4", to: "g3" },
+    hint: "Skoczek z h5 atakuje Twojego gońca na f4! Cofnij go na bezpieczne pole g3 (3. Bg3!), skąd po Nxg3 hxg3 otworzysz linię h dla wieży!"
   },
   {
-    title: "Zadanie #3: Podwójne uderzenie hetmanem (Białe)",
-    fen: "r1bqk1nr/pppp1ppp/2n5/4p3/1b2P3/2P2N2/PP1P1PPP/R1BQKB1R w KQkq - 0 5",
-    sol: { from: "d1", to: "a4" },
-    hint: "Czarny goniec na b4 stoi bez obrony – daj szacha hetmanem lub zaatakuj dwie bierki!"
+    title: "Błąd #3 z Twojej partii vs djdjkim1 (04.11.2026) – Obrona przed Smażoną Wątróbką!",
+    meta: "Po 5.Nxf7 Kxf7 6.exd5 Nxd5 7.Qf3+ cofnąłeś się na 7...Ke8?? i dostałeś mata. Jaki jest jedyny wygrywający ruch królem?",
+    fen: "r1bq1b1r/ppp2kpp/2n5/3n4/2B5/5Q2/PPPP1PPP/RNB1K2R b KQ - 1 7",
+    sol: { from: "f7", to: "e6" },
+    hint: "Odważnie wyjdź królem na 7...Ke6! Tylko tak bronisz atakowanego skoczka na d5 i utrzymujesz figurę przewagi!"
   },
   {
-    title: "Zadanie #4: Zdobycie niebronionego hetmana (Białe)",
-    fen: "4k3/8/8/3q4/8/8/4B3/3RK3 w - - 0 1",
-    sol: { from: "d1", to: "d5" },
-    hint: "Sprawdź otwartą linię d!"
+    title: "Błąd #4 z Twojej partii vs Luna-BOT (02.11.2026) – Kontra na wypad ...Qb6!",
+    meta: "Czarne zagrały ...Qb6 atakując jednocześnie Twój punkt b2 oraz d4. Jak neutralizuje to Magnus Carlsen?",
+    fen: "r1b1kbnr/pp3ppp/1qn1p3/2pp4/3P1B2/2P1PN2/PP1N1PPP/R2QKB1R w KQkq - 3 6",
+    sol: { from: "d1", to: "b3" },
+    hint: "Zagraj 6. Qb3! Bronisz punkt b2 i proponujesz wymianę hetmanów. Jeśli czarne zbiją Qxb3, odbijesz axb3! otwierając linię dla wieży Ra1."
   },
   {
-    title: "Zadanie #5: Mat Hetmanem ze wsparciem gońca (Białe)",
-    fen: "r1bq1rk1/ppp2ppp/2n5/4p3/4P3/3B1Q2/PPP2PPP/R1B1K2R w KQ - 0 1",
-    sol: { from: "f3", to: "f7" },
-    hint: "Uderz hetmanem w f7 z matem!"
+    title: "Błąd #5 z Twoich partii vs Frandalaus2 (13.01.2025) i ZaryabAhmad1050 – Obrona f7!",
+    meta: "Białe ustawiły baterię Bc4 + Qf3 celując w punkt f7. W partii zagrałeś 3...Nc6?? i padł mat 4.Qxf7#. Jak zablokować atak?",
+    fen: "rnbqk1nr/pppp1ppp/8/2b1p3/2B1P3/5Q2/PPPP1PPP/RNB1K1NR b KQkq - 3 3",
+    sol: { from: "g8", to: "f6" },
+    hint: "Wyprowadź skoczka na 3...Nf6! Jednym ruchem rozwijasz figurę i całkowicie blokujesz dostęp białego hetmana do pola f7."
+  },
+  {
+    title: "Błąd #6 z Twoich partii vs Ayal200 (01.02.2026) i op_vackav – Pułapka po Qh5+!",
+    meta: "W obu tych partiach po 1.e4 f5 2.Qh5+ g6 3.Be2 zbiłeś 3...gxh5?? i dostałeś mata 4.Bxh5#. Co należało zagrać?",
+    fen: "rnbqkbnr/ppppp2p/6p1/5p1Q/4P3/8/PPPPBPPP/RNB1K1NR b KQkq - 1 3",
+    sol: { from: "g8", to: "f6" },
+    hint: "Pion g6 jest związany z królem! Nie wolno nim bić – zagraj 3...Nf6!, atakując hetmana i osłaniając linię."
+  },
+  {
+    title: "Zadanie #7 (Wzorzec Magnusa Carlsena): Co po debiucie w Londynie? (Ruch 8)",
+    meta: "Zbudowałeś piramidę Londyńską i zrobiłeś krótką roszadę. Jakim ruchem rozpoczynasz atak w grze środkowej?",
+    fen: "r1bq1rk1/pp3ppp/2nbpn2/2pp4/3P1B2/2PBPN2/PP1N1PPP/R2Q1RK1 w - - 4 8",
+    sol: { from: "f3", to: "e5" },
+    hint: "Wskocz skoczkiem na centralną placówkę 8. Ne5! Stąd skoczek paraliżuje obronę czarnych i przygotowuje atak f4 oraz Qf3/Qh5."
+  },
+  {
+    title: "Zadanie #8 (Wzorzec Caro-Kann): Co po debiucie czarnymi? Przełom w centrum!",
+    meta: "Wyprowadziłeś gońca na Bf5 i zagrałeś ...e6. Jakim ruchem rozbijasz teraz centrum białych?",
+    fen: "rn1qkbnr/pp3ppp/2p1p3/3pPb2/3P4/5N2/PPP1BPPP/RNBQK2R b KQkq - 2 5",
+    sol: { from: "c6", to: "c5" },
+    hint: "Uderz w podstawę łańcucha pionowego białych ruchem 5...c5! To najważniejszy plan środkowej gry w Caro-Kann."
+  },
+  {
+    title: "Zadanie #9 (Z Twojej wygranej z SHIVAM002029): Królewskie widełki na c7!",
+    meta: "Czarne zostawiły niebroniony punkt c7. Znajdź podwójne uderzenie skoczkiem na króla i wieżę!",
+    fen: "r2qkbnr/ppp2ppp/2n5/3N4/4P3/8/PPP2PPP/R1BQKBNR w KQkq - 0 6",
+    sol: { from: "d5", to: "c7" },
+    hint: "Skocz skoczkiem z d5 na c7 (Nxc7+)! Dajesz szacha królowi i w kolejnym ruchu zdobywasz darmową wieżę na a8."
+  },
+  {
+    title: "Zadanie #10 (Trening Anty-Patowy z Twoich 25 remisów!): Daj mata w 1 ruchu!",
+    meta: "W 25 partiach zremisowałeś takie pozycje przez PAT (np. grając Qf7??). Znajdź czysty mat w 1 posunięciu!",
+    fen: "7k/4Q3/5K2/8/8/8/8/1R6 w - - 0 1",
+    sol: { from: "e7", to: "g7" },
+    hint: "Uważaj, by nie zapataować króla ruchem Qf7! Zagraj 1. Qg7# (mat z pocałunkiem chroniony przez króla z f6) lub 1. Rb8#!"
   }
 ];
 
 /* ============================================================================
-   5. SYSTEM KONT UŻYTKOWNIKÓW (LOCALSTORAGE)
+   5. LEKCJE NA SZACHOWNICY: OTWARCIA + CO PO DEBIUCIE (CARLSEN / GM)
+   ============================================================================ */
+const DRILLS = {
+  london_carlsen: {
+    color: 'w', name: "System Londyński + Plan Środkowej Gry Magnusa Carlsena",
+    moves: [
+      { san: "d4", reply: "d5", exp: "1. Zajmujesz centrum pionem hetmańskim." },
+      { san: "Bf4", reply: "Nf6", exp: "2. Wyprowadzasz gońca PRZED zagraniem e3!" },
+      { san: "e3", reply: "e6", exp: "3. Zamykasz łańcuch i chronisz punkt f2 (koniec z matem od Barripower!)." },
+      { san: "Nf3", reply: "Bd6", exp: "4. Rozwijasz skoczka na najlepsze pole centralne." },
+      { san: "Bg3", reply: "O-O", exp: "5. Zamiast bić na d6, cofasz gońca na g3 – jeśli czarne zbiją, otworzy się linia h dla Twojej wieży!" },
+      { san: "Bd3", reply: "c5", exp: "6. Twój białopolowy goniec celuje prosto w króla czarnych (h7)." },
+      { san: "c3", reply: "Nc6", exp: "7. Budujesz żelazną piramidę c3-d4-e3 (nigdy nie bij dxc5!)." },
+      { san: "Nbd2", reply: "Qe7", exp: "8. Drugi skoczek idzie na d2, wspierając pole e4 i e5." },
+      { san: "Ne5", reply: null, exp: "9. CO PO DEBIUCIE (Plan Carlsena): Wskakujesz skoczkiem na placówkę e5, potem grasz f4 i atakujesz króla!" }
+    ]
+  },
+  london_anti_qb6: {
+    color: 'w', name: "Londyn: Jak ukarać atak czarnych ...c5 i ...Qb6",
+    moves: [
+      { san: "d4", reply: "d5", exp: "1. Startujesz pionem d4." },
+      { san: "Bf4", reply: "c5", exp: "2. Czarne od razu atakują centrum ruchem ...c5." },
+      { san: "e3", reply: "Nc6", exp: "3. Spokojnie grasz e3 (nie bijesz na c5!)." },
+      { san: "c3", reply: "Qb6", exp: "4. Budujesz piramidę. Czarne grają agresywne ...Qb6, atakując b2!" },
+      { san: "Qb3", reply: "c4", exp: "5. KLUCZOWY RUCH PO DEBIUCIE: Grasz Qb3! Bronisz b2 i oferujesz wymianę hetmanów." },
+      { san: "Qc2", reply: null, exp: "6. Gdy czarne zamykają skrzydło ruchem ...c4, cofasz hetmana na c2 i przygotowujesz przełom e4!" }
+    ]
+  },
+  caro_adv_gm: {
+    color: 'b', name: "Obrona Caro-Kann: Wariant Zaawansowany + Plan po Debiucie",
+    moves: [
+      { firstWhite: "e4", san: "c6", reply: "d4", exp: "1. Koniec z 1...f5! Grasz pancerne 1...c6." },
+      { san: "d5", reply: "e5", exp: "2. Uderzasz w centrum. Białe zamykają pozycję ruchem 3.e5." },
+      { san: "Bf5", reply: "Nf3", exp: "3. Wyprowadzasz gońca na f5 ZANIM zagrasz ...e6!" },
+      { san: "e6", reply: "Be2", exp: "4. Zamykasz łańcuch pionowy – Twój król i punkt f7 są w 100% bezpieczne." },
+      { san: "c5", reply: "O-O", exp: "5. CO PO DEBIUCIE: Uderzasz w podstawę łańcucha białych ruchem ...c5!" },
+      { san: "Nc6", reply: "c3", exp: "6. Dokładasz nacisk skoczkiem na centralny punkt d4." },
+      { san: "Qb6", reply: null, exp: "7. PLAN ŚRODKOWEJ GRY: Hetman wychodzi na b6, atakując jednocześnie d4 oraz b2!" }
+    ]
+  },
+  caro_classical: {
+    color: 'b', name: "Obrona Caro-Kann: Wariant Klasyczny (3.Nc3 dxe4)",
+    moves: [
+      { firstWhite: "e4", san: "c6", reply: "d4", exp: "1. Zaczynasz od solidnego 1...c6." },
+      { san: "d5", reply: "Nc3", exp: "2. Walczysz o centrum." },
+      { san: "dxe4", reply: "Nxe4", exp: "3. Zbijasz piona na e4, otwierając pozycję." },
+      { san: "Bf5", reply: "Ng3", exp: "4. Wyprowadzasz gońca z tempem, atakując skoczka na e4!" },
+      { san: "Bg6", reply: "Nf3", exp: "5. Chowasz gońca na bezpiecznym polu g6." },
+      { san: "Nd7", reply: null, exp: "6. Skoczek idzie na d7, aby po kolejnym ruchu ...Ngf6 nie dostać zdwojonych pionów!" }
+    ]
+  },
+  slav_wall: {
+    color: 'b', name: "Obrona Słowiańska przeciwko 1.d4 (Ta sama struktura co Caro-Kann!)",
+    moves: [
+      { firstWhite: "d4", san: "d5", reply: "c4", exp: "1. Przeciwko 1.d4 odpowiadasz 1...d5." },
+      { san: "c6", reply: "Nf3", exp: "2. Grasz 2...c6 – masz identyczny trójkąt pionów jak w Caro-Kann!" },
+      { san: "Nf6", reply: "Nc3", exp: "3. Wyprowadzasz skoczka i kontrolujesz centrum." },
+      { san: "Bf5", reply: "e3", exp: "4. Goniec wychodzi na f5 przed zagraniem ...e6." },
+      { san: "e6", reply: null, exp: "5. Mur słowiański gotowy. Potem grasz ...Nbd7, ...Bd6 i ...O-O." }
+    ]
+  }
+};
+
+/* ============================================================================
+   6. TEST WIEDZY TEORETYCZNEJ ("CO PO OTWARCIU?" – 8 PYTAŃ)
+   ============================================================================ */
+const KNOWLEDGE_QUIZ = [
+  {
+    q: "1. W Systemie Londyńskim (1.d4 d5 2.Bf4) przeciwnik gra 3...c5, atakując Twoje centrum. Jaki był Twój błąd w partii z Barripower (mat w 6. ruchu) i co należy zagrać?",
+    opts: [
+      "Zbić 4. dxc5, żeby zdobyć piona",
+      "Zagrać 4. e3! lub 4. c3!, utrzymując piramidę pionów i chroniąc punkt f2",
+      "Zagrać 4. Nc3, blokując piona c2",
+      "Zrobić od razu długą roszadę"
+    ],
+    ans: 1,
+    exp: "Brawo! W Londynie nigdy nie bijemy 4.dxc5, bo to otwiera przekątną dla czarnego gońca na f2. Gramy 4.e3! i 5.c3!"
+  },
+  {
+    q: "2. Grasz białymi System Londyński. Czarne w 2. ruchu zagrały 2...Nh5 (lub 2...Nd5), atakując Twojego gońca na f4. Co robisz?",
+    opts: [
+      "Gram automatycznie 3. Nf3",
+      "Cofam gońca na 3. Bg3! (a jeśli czarne go zbiją Nxg3, odbijam hxg3 otwierając linię dla wieży!)",
+      "Gram 3. g4",
+      "Wychodzę hetmanem na d2"
+    ],
+    ans: 1,
+    exp: "Dokładnie! Cofnięcie 3.Bg3! chroni gońca, a po wymianie na g3 Twoja wieża z h1 zyskuje potężną otwartą linię."
+  },
+  {
+    q: "3. Co grać PO DEBIUCIE w Systemie Londyńskim (wg wzorca Magnusa Carlsena), gdy masz już piramidę c3-d4-e3, gońca na d3 i krótką roszadę O-O?",
+    opts: [
+      "Cofać figury na pierwszą linię",
+      "Wskoczyć skoczkiem na centralną placówkę Ne5!, wzmocnić go ruchem f4 i atakować króla rywala",
+      "Pchać piona a4 bez planu",
+      "Wymienić wszystkie figury na remis"
+    ],
+    ans: 1,
+    exp: "Świetnie! Placówka skoczka na e5 (wsparta przez gońca z d3 i piona f4) to główny motor ataku w Londynie."
+  },
+  {
+    q: "4. Co robisz w Londynie, gdy czarne wyprowadzą hetmana na ...Qb6, atakując Twój niebroniony punkt b2?",
+    opts: [
+      "Gram Qb3!, broniąc b2 i proponując wymianę hetmanów (po Qxb3 odbijam axb3! z otwartą linią a)",
+      "Gram b3, osłabiając czarne pola",
+      "Ignoruję groźbę i robię długą roszadę O-O-O",
+      "Poddaję partię"
+    ],
+    ans: 0,
+    exp: "Wzorowo! Ruch Qb3! całkowicie neutralizuje atak czarnych na b2."
+  },
+  {
+    q: "5. Grasz czarnymi Obronę Caro-Kann (1.e4 c6 2.d4 d5). Białe zamykają centrum ruchem 3.e5. Jaki jest Twój obowiązkowy 3. ruch?",
+    opts: [
+      "3... e6 (zamykając własnego gońca w klatce)",
+      "3... f5 (osłabiając króla)",
+      "3... Bf5! – wyprowadzenie białopolowego gońca PRZED zagraniem ...e6!",
+      "3... Qa5+"
+    ],
+    ans: 2,
+    exp: "Tak jest! W Caro-Kann najpierw wyprowadzamy gońca na 3...Bf5!, a dopiero w 4. ruchu gramy 4...e6."
+  },
+  {
+    q: "6. Co grać PO DEBIUCIE czarnymi w Caro-Kann (Wariant Zaawansowany), gdy masz już gońca na f5 i piona na e6?",
+    opts: [
+      "Uderzyć w podstawę łańcucha białych ruchem ...c5!, a następnie naciskać na punkt d4 skoczkiem (...Nc6) i hetmanem (...Qb6)",
+      "Ruszać królem po szachownicy",
+      "Czekać biernie na ruchy białych",
+      "Zagrać ...g5"
+    ],
+    ans: 0,
+    exp: "Znakomicie! Przełom ...c5! (nawet jeśli pion rusza się drugi raz) rozbija centrum białych."
+  },
+  {
+    q: "7. Którą roszadę należy wybierać w 90% partii w Systemie Londyńskim i Caro-Kann, aby uniknąć szybkich matów na skrzydle hetmańskim?",
+    opts: [
+      "Długą roszadę (O-O-O)",
+      "Krótką roszadę (O-O) – jest szybsza i znacznie bezpieczniejsza, gdy na skrzydle hetmańskim otwierają się linie b oraz c",
+      "W ogóle nie robić roszady",
+      "Iść królem na f2"
+    ],
+    ans: 1,
+    exp: "Dokładnie! W Twoim pliku PGN większość przegranych w grze środkowej brała się z długiej roszady O-O-O pod otwartą linię c."
+  },
+  {
+    q: "8. Masz w końcówce Hetmana i Króla przeciwko samemu Królowi rywala. Jak uniknąć PATU (który zdarzył Ci się ponad 25 razy)?",
+    opts: [
+      "Zabierać królowi wszystkie pola bez dawania szacha",
+      "Zostawić królowi rywala 2 pola w rogu, podejść własnym królem na odległość skoczka (lub każdy ruch kończyć SZACHEM!), aż do mata",
+      "Promować kolejne 4 hetmany",
+      "Grać na czas po 1 sekundzie na ruch"
+    ],
+    ans: 1,
+    exp: "Brawo! Zawsze sprawdzaj, czy król rywala ma przynajmniej jedno wolne pole (dopóki nie dajesz mata z szachem!)."
+  }
+];
+
+/* ============================================================================
+   7. SYSTEM KONT UŻYTKOWNIKÓW (LOCALSTORAGE)
    ============================================================================ */
 let store = {
   activeUserId: 'u_szymon',
@@ -1003,7 +1226,7 @@ let store = {
       id: 'u_szymon',
       name: 'DajMiToNaPak3',
       avatar: '👑',
-      elo: 820,
+      elo: 868,
       puzzles: 0,
       boardSize: 480,
       boardTheme: 'theme-green',
@@ -1028,7 +1251,7 @@ let store = {
 
 function loadStore() {
   try {
-    const raw = localStorage.getItem('chesscoach_club_v5');
+    const raw = localStorage.getItem('chesscoach_club_v6');
     if (raw) {
       const parsed = JSON.parse(raw);
       if (parsed && Array.isArray(parsed.users) && parsed.users.length > 0) {
@@ -1040,7 +1263,7 @@ function loadStore() {
 
 function saveStore() {
   try {
-    localStorage.setItem('chesscoach_club_v5', JSON.stringify(store));
+    localStorage.setItem('chesscoach_club_v6', JSON.stringify(store));
   } catch (e) {}
   refreshUserHeaderUI();
   renderLeaderboard();
@@ -1055,30 +1278,34 @@ function refreshUserHeaderUI() {
   $('#active-user-ava, #player-bar-ava').text(u.avatar || '👑');
   $('#active-user-name, #player-bar-name').text(u.name);
   $('#active-user-elo').text(u.elo + ' ELO');
-  $('#top-blunder-cnt').text((u.blunders || []).length);
+  $('#bank-cnt-opt').text((u.blunders || []).length);
   $('#user-puzzles-solved').text(u.puzzles || 0);
 }
 
 /* ============================================================================
-   6. STAN GRY, ZEGARY I TRWAŁE PODŚWIETLENIA PLANSZY
+   8. STAN GRY, ZEGARY I POMIAR CZASU NAMYSŁU NA RUCH
    ============================================================================ */
 let game = new Chess();
 let board = null;
 let currentTab = 'play';
 let playerColor = 'w';
 let selectedSq = null;
-let lastMoveSquares = null; // { from, to }
-let premove = null;         // { from, to }
+let lastMoveSquares = null;
+let premove = null;
 let bookTargetSq = null;
 
 let moveScores = [];
-let bestCnt = 0;
+let thinkTimes = [];
+let turnStartTimestamp = Date.now();
 let blunderCnt = 0;
 
 let activeDrill = null;
 let drillIdx = 0;
 let puzzleIdx = 0;
 let activePuzzle = null;
+
+let quizIdx = 0;
+let quizScore = 0;
 
 let clockTimer = null;
 let timePlayer = 600;
@@ -1121,7 +1348,6 @@ function resetClocks() {
   }, 1000);
 }
 
-// Funkcja przywracająca wszystkie podświetlenia i kółka po każdym przerysowaniu planszy przez chessboard.js
 function repaintAllBoardHighlights() {
   $('.square-55d63').removeClass('hl-selected legal-dot legal-capture hl-last-move hl-premove hl-book-target hl-hanging');
 
@@ -1188,7 +1414,6 @@ function initOrUpdateBoard() {
       const isMine = (playerColor === 'w' && piece.charAt(0) === 'w') ||
                      (playerColor === 'b' && piece.charAt(0) === 'b');
 
-      // Jeśli mamy zaznaczoną własną figurę i klikamy we wrogą figurę -> wykonaj bicie (Click-to-Capture)!
       if (!isMine && selectedSq) {
         if (game.turn() === playerColor) {
           executeUserMove(selectedSq, source);
@@ -1205,7 +1430,6 @@ function initOrUpdateBoard() {
       return true;
     },
     onDrop: function(source, target) {
-      // Pojedyncze kliknięcie w figurę (bez przeciągnięcia) -> zachowaj kółka dostępnych ruchów!
       if (source === target) {
         selectedSq = source;
         setTimeout(repaintAllBoardHighlights, 95);
@@ -1250,7 +1474,7 @@ function applyUserVisualSettings() {
 }
 
 /* ============================================================================
-   7. PŁYNNY RUCH GRACZA + ASYNCHRONICZNA ANALIZA TRENERA I ODPOWIEDŹ BOTA
+   9. WYKONANIE RUCHU GRACZA + POMIAR CZASU NAMYSŁU + OCENA TRENERA
    ============================================================================ */
 function executeUserMove(from, to) {
   if (currentTab === 'openings' && activeDrill) {
@@ -1266,7 +1490,13 @@ function executeUserMove(from, to) {
   const mv = game.move({ from: from, to: to, promotion: 'q' });
   if (!mv) return false;
 
-  // 1. Natychmiastowe odświeżenie planszy i dźwięku (0 ms opóźnienia!)
+  // Pomiar czasu namysłu nad ruchem
+  const spentSec = Math.max(0.5, +((Date.now() - turnStartTimestamp) / 1000).toFixed(1));
+  thinkTimes.push(spentSec);
+  const avgThink = (thinkTimes.reduce((a, b) => a + b, 0) / thinkTimes.length).toFixed(1);
+  $('#think-time-badge').text(`⏱️ Namysł: ${spentSec} s`);
+  $('#st-avg-think').text(`${avgThink} s`);
+
   selectedSq = null;
   bookTargetSq = null;
   lastMoveSquares = { from: from, to: to };
@@ -1279,7 +1509,6 @@ function executeUserMove(from, to) {
 
   renderMovesLog();
 
-  // 2. Asynchroniczna ocena ruchu i uruchomienie bota po wyrysowaniu klatki
   setTimeout(() => {
     const tempBefore = new Chess(fenBefore);
     const bestEngine = findBestEngineMoveFast(tempBefore, 1250);
@@ -1291,12 +1520,18 @@ function executeUserMove(from, to) {
 
     let bTxt = '✓ Dobry ruch', bCls = 'b-good', sc = 88, comment = '';
 
-    if (game.history().length <= 10 && bestEngine && bestEngine.isBook && bestEngine.move.san === mv.san) {
-      bTxt = '📖 Ruch Książkowy'; bCls = 'b-book'; sc = 100; bestCnt++;
-      comment = `Książkowe posunięcie (${mv.san})! Wzorowo realizujesz plan debiutowy.`;
+    // Specjalne ostrzeżenie, jeśli Szymon zagrał 1...f5!
+    if (playerColor === 'b' && game.history().length === 2 && mv.san === 'f5') {
+      bTxt = '?! Zakazany Gambicik 1...f5!';
+      bCls = 'b-blunder';
+      sc = 35;
+      comment = `Uwaga! Zagrałeś 1...f5 (Obronę Freda), przez którą w swoich 1200 partiach miałeś tylko 37% wygranych i dostawałeś maty po Qh5+! Następnym razem graj 1...c6 (Caro-Kann)!`;
+    } else if (game.history().length <= 10 && bestEngine && bestEngine.isBook && bestEngine.move.san === mv.san) {
+      bTxt = '📖 Ruch Książkowy'; bCls = 'b-book'; sc = 100;
+      comment = `Książkowe posunięcie (${mv.san}, namysł: ${spentSec}s)! Wzorowo realizujesz repertuar.`;
     } else if ((bestEngine && bestEngine.move.san === mv.san) || cpLoss <= 30) {
-      bTxt = '★ Najlepszy ruch'; bCls = 'b-best'; sc = 100; bestCnt++;
-      comment = `Znakomicie (${mv.san})! To najsilniejsze posunięcie w tej pozycji.`;
+      bTxt = '★ Najlepszy ruch'; bCls = 'b-best'; sc = 100;
+      comment = `Znakomicie (${mv.san}, namysł: ${spentSec}s)! To najsilniejsze posunięcie w tej pozycji.`;
     } else if (cpLoss <= 85) {
       bTxt = '✓ Dobry ruch'; bCls = 'b-good'; sc = 86;
       comment = `Solidny ruch (${mv.san}). Alternatywnie silnik proponował ${bestEngine ? bestEngine.move.san : ''}.`;
@@ -1306,16 +1541,18 @@ function executeUserMove(from, to) {
     } else {
       bTxt = '?? Wielbłąd'; bCls = 'b-blunder'; sc = 20; blunderCnt++;
       SoundFX.play('blunder');
-      comment = `Poważny błąd (${mv.san})! Tracisz materiał lub bezpieczeństwo. Zdecydowanie lepsze było ${bestEngine ? bestEngine.move.san : ''}. Dodano do Twojego Banku Błędów!`;
+      const speedWarn = spentSec < 3.0 ? ` Zagrałeś ten ruch w zaledwie ${spentSec}s – zwolnij tempo!` : '';
+      comment = `Poważny błąd (${mv.san})!${speedWarn} Zdecydowanie lepsze było ${bestEngine ? bestEngine.move.san : ''}. Dodano pozycję do Twojego Banku Błędów!`;
 
       if (bestEngine && bestEngine.move) {
         const u = getActiveUser();
         u.blunders = u.blunders || [];
         u.blunders.unshift({
-          title: `Twój błąd z partii (${u.name} – zamiast ${mv.san})`,
+          title: `Błąd z partii (${u.name} – zamiast ${mv.san})`,
+          meta: `Czas namysłu: ${spentSec}s. Znajdź znacznie silniejsze posunięcie!`,
           fen: fenBefore,
           sol: { from: bestEngine.move.from, to: bestEngine.move.to },
-          hint: `W partii zagrałeś ${mv.san}. Znajdź najlepsze posunięcie silnika (${bestEngine.move.san})!`
+          hint: `W partii zagrałeś ${mv.san}. Najlepszy ruch silnika to ${bestEngine.move.san}!`
         });
         saveStore();
       }
@@ -1353,6 +1590,7 @@ function runBotMove() {
   updateEvalBarAndMaterial();
 
   if (checkGameOver()) return;
+  turnStartTimestamp = Date.now();
   $('#turn-indicator').text('• Twój ruch');
 
   if (premove && $('#chk-premove').is(':checked')) {
@@ -1368,7 +1606,7 @@ function computeOpeningGuideTarget() {
   if (currentTab !== 'play') return;
   const g = $('#sel-guide').val();
   const h = game.history();
-  if (g === 'free' || h.length > 10) return;
+  if (g === 'free' || h.length > 14) return;
 
   if (g === 'london' && playerColor === 'w') {
     if (h.length === 0) bookTargetSq = 'd4';
@@ -1376,18 +1614,19 @@ function computeOpeningGuideTarget() {
     else if (h.length === 4) bookTargetSq = 'e3';
     else if (h.length === 6) bookTargetSq = 'f3';
     else if (h.length === 8) bookTargetSq = 'c3';
+    else if (h.length === 10) bookTargetSq = 'd3';
+    else if (h.length === 12) bookTargetSq = 'e5';
   } else if (g === 'caro' && playerColor === 'b') {
     if (h.length === 1) bookTargetSq = 'c6';
     else if (h.length === 3) bookTargetSq = 'd5';
     else if (h.length === 5) bookTargetSq = 'f5';
+    else if (h.length === 7) bookTargetSq = 'e6';
+    else if (h.length === 9) bookTargetSq = 'c5';
   } else if (g === 'slav' && playerColor === 'b') {
     if (h.length === 1) bookTargetSq = 'd5';
     else if (h.length === 3) bookTargetSq = 'c6';
     else if (h.length === 5) bookTargetSq = 'f6';
-  } else if (g === 'italian' && playerColor === 'w') {
-    if (h.length === 0) bookTargetSq = 'e4';
-    else if (h.length === 2) bookTargetSq = 'f3';
-    else if (h.length === 4) bookTargetSq = 'c4';
+    else if (h.length === 7) bookTargetSq = 'f5';
   }
 }
 
@@ -1398,7 +1637,6 @@ function updateStatsAndEvalUI(bTxt, bCls, comment) {
 
   $('#st-acc').text(avg + '%');
   $('#st-perf').text(perf);
-  $('#st-best').text(bestCnt);
   $('#st-blunders').text(blunderCnt);
 
   $('#move-quality-badge').attr('class', 'badge-move ' + bCls).text(bTxt);
@@ -1472,8 +1710,11 @@ function checkGameOver() {
     } else {
       msg = '💀 MAT! Bot zwyciężył.'; delta = -12;
     }
+  } else if (game.in_stalemate()) {
+    msg = '⚠️ PAT! Uważaj – w Twoich 1200 partiach miałeś ponad 25 patów w wygranych końcówkach!';
+    delta = 0;
   } else {
-    msg = '🤝 Remis!'; delta = +3;
+    msg = '🤝 Remis!'; delta = +2;
   }
   finishGameWithReason(msg, delta);
   return true;
@@ -1504,7 +1745,7 @@ function finishGameWithReason(msg, delta) {
 }
 
 /* ============================================================================
-   8. AKADEMIA OTWARĆ, ZADANIA I RANKING
+   10. OBSŁUGA ZADAŃ Z PGN, LEKCJI DEBIUTOWYCH I TESTU WIEDZY
    ============================================================================ */
 function startDrill() {
   activeDrill = DRILLS[$('#sel-drill').val()];
@@ -1529,8 +1770,8 @@ function renderDrillSteps() {
   let html = '';
   activeDrill.moves.forEach((s, i) => {
     const bg = i < drillIdx ? 'rgba(129,182,76,0.18)' : (i === drillIdx ? 'rgba(56,189,248,0.18)' : 'rgba(0,0,0,0.2)');
-    html += `<div style="padding:8px 12px; border-radius:7px; background:${bg}; font-size:0.83rem; display:flex; justify-content:space-between;">
-      <span>Krok ${i+1}: <strong>${s.san}</strong> – ${s.exp}</span>
+    html += `<div style="padding:7px 10px; border-radius:6px; background:${bg}; font-size:0.8rem; display:flex; justify-content:space-between;">
+      <span><strong>${s.san}</strong> – ${s.exp}</span>
       <span>${i < drillIdx ? '✅' : ''}</span>
     </div>`;
   });
@@ -1551,9 +1792,9 @@ function highlightDrillStep() {
       selectedSq = m.from;
       bookTargetSq = m.to;
     }
-    $('#coach-comment').text(`Krok ${drillIdx+1}: Zagraj ${step.san}. ${step.exp}`);
+    $('#coach-comment').text(`${step.exp}`);
   } else {
-    $('#coach-comment').text(`Egzamin z pamięci: Wykonaj ruch #${drillIdx+1} w debiucie ${activeDrill.name}!`);
+    $('#coach-comment').text(`Egzamin z pamięci: Wykonaj ruch #${drillIdx+1} w systemie ${activeDrill.name}!`);
   }
   repaintAllBoardHighlights();
 }
@@ -1568,7 +1809,7 @@ function processDrillMove(from, to) {
     game.undo();
     board.position(game.fen(), false);
     SoundFX.play('blunder');
-    $('#coach-comment').text(`W tym wariancie gramy ${step.san} (${step.exp}). Spróbuj jeszcze raz!`);
+    $('#coach-comment').text(`W tym systemie wzorcowy ruch to ${step.san} (${step.exp}). Spróbuj ponownie!`);
     repaintAllBoardHighlights();
     return false;
   }
@@ -1596,9 +1837,9 @@ function processDrillMove(from, to) {
       const u = getActiveUser();
       u.elo += 15;
       saveStore();
-      $('#coach-comment').text(`Brawo! Zdałeś egzamin z debiutu ${activeDrill.name} z pamięci (+15 ELO)!`);
+      $('#coach-comment').text(`Brawo! Zdałeś egzamin z debiutu i planu gry środkowej (${activeDrill.name}) – otrzymujesz +15 ELO!`);
     } else {
-      $('#coach-comment').text(`Świetnie! Opanowałeś wariant ${activeDrill.name}. Sprawdź się teraz w trybie Egzaminu!`);
+      $('#coach-comment').text(`Świetnie! Opanowałeś debiut i plan po otwarciu (${activeDrill.name}). Przełącz teraz na „Egzamin z pamięci”!`);
     }
   }
   return true;
@@ -1607,7 +1848,7 @@ function processDrillMove(from, to) {
 function loadCurrentPuzzle() {
   const u = getActiveUser();
   const src = $('#sel-puzzle-src').val();
-  const pool = (src === 'blunders' && u.blunders && u.blunders.length) ? u.blunders : PUZZLES;
+  const pool = (src === 'blunders' && u.blunders && u.blunders.length) ? u.blunders : MY_PGN_PUZZLES;
   activePuzzle = pool[puzzleIdx % pool.length];
 
   game.load(activePuzzle.fen);
@@ -1620,14 +1861,19 @@ function loadCurrentPuzzle() {
   repaintAllBoardHighlights();
 
   $('#puzzle-header-title').text(activePuzzle.title);
+  $('#puzzle-meta-info').text(activePuzzle.meta || 'Znajdź najlepszy ruch w tej pozycji.');
   $('#coach-comment').text(activePuzzle.hint);
 }
 
 function processPuzzleMove(from, to) {
   if (!activePuzzle) return false;
-  if (from === activePuzzle.sol.from && to === activePuzzle.sol.to) {
-    const mv = game.move({ from: from, to: to, promotion: 'q' });
-    if (!mv) return false;
+  const testMv = game.move({ from: from, to: to, promotion: 'q' });
+  if (!testMv) return false;
+
+  const isExactSol = (from === activePuzzle.sol.from && to === activePuzzle.sol.to);
+  const isMateMove = game.in_checkmate();
+
+  if (isExactSol || isMateMove) {
     lastMoveSquares = { from: from, to: to };
     selectedSq = null;
     bookTargetSq = null;
@@ -1637,15 +1883,30 @@ function processPuzzleMove(from, to) {
 
     const u = getActiveUser();
     u.puzzles = (u.puzzles || 0) + 1;
-    u.elo += 4;
+    u.elo += 5;
     saveStore();
-    $('#coach-comment').text('Genialnie! Zadanie rozwiązane poprawnie (+4 ELO do Twojego profilu).');
+    $('#move-quality-badge').attr('class', 'badge-move b-best').text('✓ Rozwiązane (+5 ELO)');
+    $('#coach-comment').text(`Genialnie! Ruch ${testMv.san} wygrywa / ratuje tę pozycję! Kliknij „Następne Zadanie”, aby trenować dalej.`);
     return true;
   } else {
+    game.undo();
+    board.position(game.fen(), false);
     SoundFX.play('blunder');
-    $('#coach-comment').text('To nie jest najlepsze uderzenie. Poszukaj szacha, widełek lub niebronionej figury!');
+    $('#move-quality-badge').attr('class', 'badge-move b-blunder').text('Spróbuj inaczej');
+    $('#coach-comment').text(`Ten ruch nie rozwiązuje problemu. Wskazówka: ${activePuzzle.hint}`);
+    repaintAllBoardHighlights();
     return false;
   }
+}
+
+function renderQuizQuestion() {
+  const item = KNOWLEDGE_QUIZ[quizIdx % KNOWLEDGE_QUIZ.length];
+  $('#quiz-question-txt').text(item.q);
+  let html = '';
+  item.opts.forEach((optTxt, i) => {
+    html += `<button class="quiz-opt" data-qidx="${i}">${optTxt}</button>`;
+  });
+  $('#quiz-options-box').html(html);
 }
 
 function renderLeaderboard() {
@@ -1692,7 +1953,7 @@ function renderLeaderboard() {
 }
 
 /* ============================================================================
-   9. START NOWEJ PARTII I OBSŁUGA ZDARZEŃ
+   11. START NOWEJ PARTII I ZDARZENIA INTERFEJSU
    ============================================================================ */
 function startNewGame() {
   game.reset();
@@ -1701,8 +1962,9 @@ function startNewGame() {
   lastMoveSquares = null;
   bookTargetSq = null;
   moveScores = [];
-  bestCnt = 0;
+  thinkTimes = [];
   blunderCnt = 0;
+  turnStartTimestamp = Date.now();
 
   playerColor = $('#sel-color').val();
   const botElo = $('#sel-bot-elo').val();
@@ -1716,8 +1978,9 @@ function startNewGame() {
   $('#moves-log').empty();
   $('#st-acc').text('100%');
   $('#st-perf').text(botElo);
-  $('#st-best').text('0');
+  $('#st-avg-think').text('0.0 s');
   $('#st-blunders').text('0');
+  $('#think-time-badge').text('⏱️ Namysł: -- s');
 
   updateEvalBarAndMaterial();
   resetClocks();
@@ -1748,10 +2011,11 @@ $(document).ready(function() {
   loadStore();
   refreshUserHeaderUI();
   renderLeaderboard();
+  renderQuizQuestion();
   applyUserVisualSettings();
   startNewGame();
 
-  // Click-to-Move na polach szachownicy (działające z kółkami i biciami)
+  // Click-to-Move na polach szachownicy
   $(document).on('click', '.square-55d63', function() {
     const sq = $(this).attr('data-square');
     if (!sq) return;
@@ -1784,7 +2048,6 @@ $(document).ready(function() {
     }
   });
 
-  // Prawy przycisk myszy anuluje Premove i zaznaczenie
   $(document).on('contextmenu', '#board', function(e) {
     e.preventDefault();
     premove = null;
@@ -1792,7 +2055,7 @@ $(document).ready(function() {
     repaintAllBoardHighlights();
   });
 
-  // Nawigacja między zakładkami
+  // Nawigacja między 6 zakładkami
   $('.nav-pill').on('click', function() {
     $('.nav-pill').removeClass('active');
     $(this).addClass('active');
@@ -1806,11 +2069,10 @@ $(document).ready(function() {
     else if (currentTab === 'leaderboard') renderLeaderboard();
   });
 
-  // Automatyczne dopasowanie koloru do wybranego asystenta debiutowego
   $('#sel-guide').on('change', function() {
     const g = $(this).val();
     if (g === 'caro' || g === 'slav') $('#sel-color').val('b');
-    else if (g === 'london' || g === 'italian') $('#sel-color').val('w');
+    else if (g === 'london') $('#sel-color').val('w');
     if (currentTab === 'play') startNewGame();
   });
 
@@ -1858,7 +2120,7 @@ $(document).ready(function() {
     $('#coach-comment').text('📋 Skopiowano zapis PGN partii do schowka!');
   });
 
-  // Akademia otwarć i zadania
+  // Akademia otwarć, zadania i Test Wiedzy
   $('#btn-start-drill, #sel-drill, #sel-drill-mode').on('change click', function(e) {
     if (e.type === 'click' && this.id !== 'btn-start-drill') return;
     startDrill();
@@ -1880,6 +2142,31 @@ $(document).ready(function() {
       bookTargetSq = activePuzzle.sol.to;
       repaintAllBoardHighlights();
     }
+  });
+
+  $(document).on('click', '.quiz-opt', function() {
+    const chosen = parseInt($(this).data('qidx'), 10);
+    const item = KNOWLEDGE_QUIZ[quizIdx % KNOWLEDGE_QUIZ.length];
+    $('.quiz-opt').prop('disabled', true);
+    if (chosen === item.ans) {
+      $(this).addClass('correct');
+      quizScore++;
+      SoundFX.play('win');
+      const u = getActiveUser();
+      u.elo += 3;
+      saveStore();
+    } else {
+      $(this).addClass('wrong');
+      $(`.quiz-opt[data-qidx="${item.ans}"]`).addClass('correct');
+      SoundFX.play('blunder');
+    }
+    $('#quiz-score-lbl').text(`Wynik: ${quizScore} / ${KNOWLEDGE_QUIZ.length}`);
+    $('#coach-comment').text(item.exp);
+  });
+
+  $('#btn-next-quiz').on('click', function() {
+    quizIdx++;
+    renderQuizQuestion();
   });
 
   // Personalizacja wyglądu i rozmiaru
